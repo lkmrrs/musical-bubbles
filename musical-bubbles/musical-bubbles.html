@@ -1,0 +1,61 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="musical-bubbles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<div id="main-container">
+    <nav class="invisible-menu" id="trackmenu">
+        <ul id="track0" class="menu-item-selected">MARY HAD A LITTLE LAMB</ul>
+        <ul id="track1">TWINKLE TWINKLE</ul>
+        <ul id="track2">ITSY BITSY SPIDER</ul>
+        <ul id="track3">OLD MACDONALD</ul>
+        <ul id="track4">ROW YOUR BOAT</ul>
+        <ul id="track5">RANDOM NOTES</ul>
+    </nav>
+    <nav class="invisible-menu" id="instrumentmenu">
+        <ul id="instrument0" class="menu-item-selected">ORGAN</ul>
+        <ul id="instrument1">PIANO</ul>
+        <ul id="instrument2">GUITAR</ul>
+        <ul id="instrument3">EDM(?)</ul>
+    </nav>
+
+    <div class="menu-buttons">
+        <button class="top-button" id="top-button"><i class="fa-sharp fa-solid fa-book fa-fade fa-xl" style="color: #826799;"></i></button>
+        <button class="instrument-button" id="bottom-button"><i class="fa-sharp fa-solid fa-guitar fa-fade fa-xl" style="color: #826799;"></i></button>
+    </div>
+
+    <div id="dot-container">
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot1"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot2"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot3"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot4"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot5"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot6"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot7"></div>
+        </div>
+        <div onmouseover='playRandomNote(this); this.onmouseover = null;' ontouchstart='playRandomNote(this); this.ontouchstart = null;' class ="dot-jiggle">
+            <div class ="dot" id="dot8"></div>
+        </div>
+    </div>
+</div>
+
+<!-- audiosynth: https://github.com/keithwhor/audiosynth -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/audiosynth/1.0.0/audiosynth.min.js"></script>
+
+<!-- lodash -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+<script type="text/javascript" src="src/musical-bubbles.js"></script>
+

@@ -1,0 +1,344 @@
+/* main container */
+body {
+  background-color: #202124;
+  margin: 0px;
+}
+
+#main-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  overflow: hidden;
+  background-color: #202124;
+}
+
+/* dot container */
+#dot-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}
+
+.dot-container-rotate {
+  animation: rotateDots ease-in-out 5s infinite;
+}
+
+.dot-container-rotate-reverse {
+  animation: rotateDotsReverse ease-in-out 2s infinite;
+}
+
+/* dot */
+.dot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #d9abff;
+  border-radius: 100%;
+  animation: fadeIn cubic-bezier(1,0,1,.91) 2.5s;
+  vertical-align: middle;
+}
+
+.expand {
+  position: absolute;
+  border-radius: 100%;
+  animation: transformDot ease-in-out 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.contract-dot-jiggle {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  animation: transformDotJiggleReverse ease-in-out 1s;
+  animation-fill-mode: forwards;
+}
+
+.contract-dot {
+  animation: fadeOut ease-in-out 1s;
+  animation-fill-mode: forwards;
+}
+
+.dot-jiggle {
+  position: absolute;
+  vertical-align: middle;
+  top: 37.5px;
+  left: 37.5px;
+  height: 25px;
+  width: 25px;
+}
+
+.dot-jiggle:hover {
+  animation: jiggle 0.5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes rotateDots {
+  from {
+    transform:rotate(0deg);
+  }
+    to {
+      transform:rotate(360deg);
+  }
+}
+
+@keyframes rotateDotsReverse {
+  from {
+    transform:rotate(360deg);
+  }
+    to {
+      transform:rotate(0deg);
+  }
+}
+
+@keyframes transformDot {
+  from {
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+@keyframes transformDotJiggleReverse {
+  from {
+    transform: translate(var(--x), var(--y));
+  }
+  to {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* bubble stuff */
+.bubble {
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
+
+  animation: fall cubic-bezier(.81,.31,.92,.81) 5.5s;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0%);
+
+  }
+  to {
+    transform: translateY(var(--y-percent));
+  }
+}
+
+.bubble-jiggle {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  height: max(150px, 15vw);
+  width: max(150px, 15vw);
+  background: white;
+  border-radius: 100%;
+}
+
+.bubble-flare {
+  opacity: 1;
+  box-shadow:
+  0 0 15px 10px #fff,
+  0 0 30px 15px #f0f,
+  0 0 45px 20px #0ff;
+}
+
+@keyframes jiggle {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* controls */
+.menu-buttons {
+  position: absolute;
+  top: 7px;
+  left: 0%;
+  width: 30px;
+  height: 185px;
+}
+
+.top-button, #bottom-button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.top-button {
+  left: 0;
+  top: 0;
+}
+
+.instrument-button {
+  top: 40px;
+}
+
+.instrument-button, .instrument-button-animate {
+  right: 0;
+  bottom: 0;
+}
+
+.instrument-button-animate {
+  animation: slideUp ease-in-out 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.bottom-button {
+  right: 0;
+  bottom: 0;
+  top: 40px;
+  animation: slideDown ease-in-out 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+  from {
+    top: 40px;
+  }
+  to {
+    top: 135px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    top: 135px;
+  }
+  to {
+    top: 40px;
+  }
+}
+
+.invisible-menu {
+  pointer-events:none;
+  opacity: 0;
+  display: none;
+}
+
+.track-menu, .track-menu-invisible {
+  position: absolute;
+  top: 15px;
+  left: 40px;
+  width: 230px;
+}
+
+.instrument-menu, .instrument-menu-invisible {
+  position: absolute;
+  top: 56px;
+  left: 40px;
+  width: 80px;
+}
+
+.instrument-menu-bottom, .instrument-menu-bottom-invisible {
+  position: absolute;
+  top: 150px;
+  left: 40px;
+  width: 80px;
+}
+
+.track-menu {
+  animation: fadeIn ease-in-out 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.instrument-menu, .instrument-menu-bottom {
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation: fadeIn ease-in-out 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.instrument-menu-invisible, .track-menu-invisible, .instrument-menu-bottom-invisible {
+  pointer-events: none;
+  animation: fadeOut ease-in-out 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.track-menu ul, .instrument-menu ul, .track-menu-invisible ul, .instrument-menu-invisible ul, .instrument-menu-bottom ul, .instrument-menu-bottom-invisible ul{
+  color: #cdc2d6;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 1.2em;
+  text-align: left;
+  text-transform: lowercase;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin: 0px 0;
+  padding-left: 0px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 10;
+}
+
+.track-menu ul:hover, .instrument-menu ul:hover, .instrument-menu-bottom ul:hover {
+   color: #cdc2d6;
+   animation: menuTextColourChange ease-in-out 0.2s;
+   animation-fill-mode: forwards;
+}
+
+@keyframes menuTextColourChange {
+  0% { color: #cdc2d6; }
+  100% { color: #826799; }
+}
+
+
+.menu-item-selected {
+animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #826799, 0 0 4px #826799, 0 0 5px #826799, 0 0 6px #826799, 0 0 7px #826799;
+  }
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 3px #68527a, 0 0 4px #68527a, 0 0 5px #68527a, 0 0 6px #68527a, 0 0 7px #68527a, 0 0 8px #68527a;
+  }
+}
